@@ -1,0 +1,97 @@
+{
+  "appConfig" : {
+    "feedSel" : "download",
+    "applicationName" : "download",
+    "configuration" : [ "/mnt/config" ],
+    "master" : "local[*]",
+    "deployMode" : "client",
+    "parallelism" : 1,
+    "statePath" : "/mnt/lib/state",
+    "streaming" : false
+  },
+  "runId" : 1,
+  "attemptId" : 1,
+  "runStartTime" : "2023-02-13T12:23:46.190972",
+  "attemptStartTime" : "2023-02-13T12:23:46.191050",
+  "actionsState" : {
+    "download-airports" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 1,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-13T12:23:51.746864",
+      "duration" : "PT1.036397S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "FileSubFeed",
+          "dataObjectId" : "stg-airports",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "fileRefMapping" : [ {
+            "src" : {
+              "fullPath" : "",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            },
+            "tgt" : {
+              "fullPath" : "stg-airports/result.csv",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            }
+          } ]
+        },
+        "mainMetrics" : {
+          "files_written" : 1
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    },
+    "download-departures" : {
+      "executionId" : {
+        "type" : "SDLExecutionId",
+        "runId" : 1,
+        "attemptId" : 1
+      },
+      "state" : "SUCCEEDED",
+      "startTstmp" : "2023-02-13T12:23:53.074981",
+      "duration" : "PT0.300407S",
+      "results" : [ {
+        "subFeed" : {
+          "type" : "FileSubFeed",
+          "dataObjectId" : "stg-departures",
+          "partitionValues" : [ ],
+          "isDAGStart" : false,
+          "isSkipped" : false,
+          "fileRefMapping" : [ {
+            "src" : {
+              "fullPath" : "",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            },
+            "tgt" : {
+              "fullPath" : "stg-departures/result.json",
+              "fileName" : "result",
+              "partitionValues" : {
+                "elements" : { }
+              }
+            }
+          } ]
+        },
+        "mainMetrics" : {
+          "files_written" : 1
+        }
+      } ],
+      "dataObjectsState" : [ ]
+    }
+  },
+  "isFinal" : true
+}
