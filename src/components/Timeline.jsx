@@ -1,7 +1,7 @@
 import ReactApexChart from "react-apexcharts"
-import { getData } from "./utils/TimeMethods.ts"
 import { StateParser } from "./utils/StateParser.ts";
-
+import { TimelineChart } from "./utils/TimelineChart.ts";
+import { BrushChart } from "./utils/BrushChart.ts";
 
 const indigo = '#16a34a';
 const red = '#dc2626';
@@ -147,7 +147,9 @@ const opt2 = {
 const Timeline = () => {
     const data = new StateParser('compute-distances.1.1.json');
 
-    //const series = getData('compute-distances.1.1.json');
+    const mainChart = new TimelineChart(data, 'chart-1');
+    const brushChart = new BrushChart(data, mainChart.id, 'chart-2');
+
     const mainLine = {            
         series: data.serie,
         options: opt1
