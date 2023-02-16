@@ -1,92 +1,19 @@
 import ReactApexChart from "react-apexcharts"
+import { getData } from "./utils/TimeMethods.ts"
+import { StateParser } from "./utils/StateParser.ts";
+
 
 const indigo = '#16a34a';
 const red = '#dc2626';
 const slate = '#cbd5e1';
 const dark = '#0f172a';
 
-const generateData = () => {
-  const data = [];
-  let failed = false;
-  
-  for (let i = 0; i < 10; i++) {  
-    failed = Math.random() > 0.8 || failed;  
-    const start = i > 0 ? data[i-1].y[1] : 0; 
-    const point = {
-      x: 'Task ' + i,
-      y: [start, Math.random() > 0.5 ? start+10*(Math.random()+1) : 0.5+start+Math.random()],
-      fillColor: failed ? slate : indigo
-    }
-    data.push(point)
-  }
-    
-  return data;  
- }
-
-const toMicro = (time) => {
-  const minutes = parseFloat(time.split(':')[1])*60;
-  const sec = parseFloat(time.split(':')[2]);
-  return (minutes+sec)*1000000;
-}
-
-const durationMicro = (duration) => {
-  return parseFloat((duration.split('T')[1]).split('S')[0])*1000000;
-}
-
-const getEndTime = (data) => {
-  var max = -1;
-  for (const action in data) {
-    if (data[action]['y'][1] > max) {
-      max = data[action]['y'][1];
-    }
-  }
-  return max;
-}
-
-const parseStateFileSerie = () => {
-  const stateFile = require('../assets/config/state/compute-distances.1.1.json');
-  const runStartTime = toMicro(stateFile.runStartTime);
-  const attempStartTime = toMicro(stateFile.attemptStartTime);
-  var actions = [];
-
-  for (const action in stateFile.actionsState) {
-    const state = stateFile.actionsState[action].state;
-    const start = toMicro(stateFile.actionsState[action].startTstmp);
-    const duration = durationMicro(stateFile.actionsState[action].duration);
-
-    actions.push({
-          x: action,
-          y: [start-runStartTime, start + duration-runStartTime],
-          fillColor: (state === 'SUCCEEDED') ? indigo : red
-    });
-  }
-
-  var series =  [
-    {
-      name: 'Run',
-      data: [
-        {
-          x: 'Attempt ' + stateFile.attemptId + ' runtime',
-          y: [attempStartTime-runStartTime, getEndTime(actions)],
-          fillColor: '#94a3b8'
-        }
-      ]
-    },
-    {
-      name: 'Actions',
-      data: actions
-    }
-  ]
-  
-  return series;
-}
 
 const opt1 = {
   chart: {
     type: 'rangeBar',
     id: 'chart2',
     toolbar: {
-      autoSelected: 'pan',
       show: true
     },
     
@@ -218,14 +145,16 @@ const opt2 = {
 };
 
 const Timeline = () => {
-    const _series = parseStateFileSerie();
-    const state = {      
-        series: _series,
+    const data = new StateParser('compute-distances.1.1.json');
+
+    //const series = getData('compute-distances.1.1.json');
+    const mainLine = {            
+        series: data.serie,
         options: opt1
       }
 
-    const state2 = {
-      series: _series,
+    const brushLine = {
+      series: data.serie,
       options: opt2
     }
 
@@ -233,15 +162,15 @@ const Timeline = () => {
       <>
         <div>
           <ReactApexChart 
-            options={state.options} 
-            series={state.series} 
+            options={mainLine.options} 
+            series={mainLine.series} 
             type="rangeBar" 
             height="300"/>
         </div>
         <div>
           <ReactApexChart 
-            options={state2.options} 
-            series={state2.series} 
+            options={brushLine.options} 
+            series={brushLine.series} 
             type="rangeBar" 
             height="100"/>
         </div>

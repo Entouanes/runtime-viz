@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="m-10 bg-white rounded-lg p-2">
-        <h1 className="text-center m-10 text-6xl font-semibold text-slate-600 font-mono">Runtime visualizer</h1>
+        <h1 className="text-center m-10 text-6xl font-semibold text-slate-600 font-mono">Timeline demo</h1>
         <div>
           <Card/>
         </div>

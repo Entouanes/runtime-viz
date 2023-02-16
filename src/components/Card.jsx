@@ -1,4 +1,3 @@
-import Apexchart from "./Apexchart";
 import Timeline from "./Timeline";
 
 export default function Card() {
