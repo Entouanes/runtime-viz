@@ -20,7 +20,7 @@
         "runId" : 2,
         "attemptId" : 1
       },
-      "state" : "SUCCEEDED",
+      "state" : "SUCCEDED",
       "startTstmp" : "2023-02-15T13:28:08.119913",
       "duration" : "PT0.924684S",
       "results" : [ {
@@ -126,7 +126,7 @@
         "runId" : 2,
         "attemptId" : 1
       },
-      "state" : "SUCCEEDED",
+      "state" : "SUCCEEfDED",
       "startTstmp" : "2023-02-15T13:28:07.116472",
       "duration" : "PT0.994222S",
       "results" : [ {
@@ -154,7 +154,7 @@
         "runId" : 2,
         "attemptId" : 1
       },
-      "state" : "SUCCEEDED",
+      "state" : "SUCCEEDdED",
       "startTstmp" : "2023-02-15T13:28:09.052935",
       "duration" : "PT0.310888S",
       "results" : [ {

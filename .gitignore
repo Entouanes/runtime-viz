@@ -1,6 +1,9 @@
 # Libraries
 node_modules
 
+# Local statefiles
+src/assets/config/state/*
+
 # Logs
 logs
 *.log

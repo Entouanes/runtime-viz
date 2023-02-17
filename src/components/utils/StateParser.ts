@@ -23,7 +23,7 @@ export class StateParser {
     public actions: any;
     public serie: object[];
 
-    // Properties  
+    // Properties
     private generateSerie() : object[] {
         var serie: object[] = [];
         const start: number = toMicro(this.stateFile.runStartTime);
@@ -35,7 +35,7 @@ export class StateParser {
                         toMicro(this.actions[i].start) - start, 
                         toMicro(this.actions[i].start) + durationMicro(this.actions[i].duration) - start
                     ],
-                    fillColor: (this.actions[i].state === 'SUCCEEDED') ? '#16a34a' : '#dc2626'
+                    fillColor: (this.actions[i].state === 'SUCCEEDED') ? '#16a34a' : ((this.actions[i].state === 'SKIPPED') ? '#fcd34d' : '#dc2626')
                 }
             )
         }

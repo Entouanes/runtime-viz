@@ -10,10 +10,10 @@ function App() {
           <Card/>
         </div>
         <div className="flex justify-center">
-          <button 
+          {/* <button 
             className="hover:text-white hover:bg-indigo-500 text-cente inline-flex items-center justify-center p-2 bg-white rounded-md shadow-lg text-indigo-500 ring-1 ring-indigo-500">
               Load new state file
-          </button>
+          </button> */}
         </div>
       </div>
     </>
