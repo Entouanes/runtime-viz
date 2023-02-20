@@ -30,6 +30,9 @@ export class TimelineChart {
                     blur: 2,
                     opacity: 0.2
                   },    
+                toolbar: {
+                    position: 'bottom'
+                }
             },
             grid: {
                 xaxis: {
@@ -48,7 +51,7 @@ export class TimelineChart {
                     horizontal: true,
                     distributed: true,
                     barHeight: '90%',
-                    borderRadius: 2,
+                    borderRadius: 1,
                     rangeBarGroupRows: true,
                     dataLabels: {
                         position: 'top',
@@ -70,7 +73,7 @@ export class TimelineChart {
                     show: true,
                     align: 'right',
                     minWidth: 0,
-                    maxWidth: 200,
+                    maxWidth: 300,
                 },
             },
             dataLabels: {
@@ -78,7 +81,7 @@ export class TimelineChart {
                 offsetX: 0,
                 style: {
                     fontWeight: 'ligth',
-                    fontSize: '12px',
+                    fontSize: '11px',
                     fontFamily: 'monospace',
                     colors: ['#000']
                 },
@@ -107,6 +110,7 @@ export class TimelineChart {
                 '#64748b', '#16a34a', '#fcd34d', '#dc2626'
             ],
             legend: {
+                show: false,
                 position: "top"
             },
             tooltip: {
@@ -120,7 +124,7 @@ export class TimelineChart {
                     title: 'Y'
                 },
                 onDatasetHover: {
-                    highlightDataSeries: true,
+                    highlightDataSeries: false,
                 },
                 style: {
                     fontSize: '12px',

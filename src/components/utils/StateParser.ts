@@ -91,7 +91,6 @@ export class StateParser {
         if (categorize) {
             serie = serie.concat(this.categorizeSeries(succeeded, skipped, cancelled));
         } else {
-            console.log(serie.concat(succeeded.concat(skipped.concat(cancelled)).sort(this.cmp)))
             serie = serie.concat({
                 name: 'Actions',
                 data: succeeded.concat(skipped.concat(cancelled)).sort(this.cmp)
@@ -107,7 +106,7 @@ export class StateParser {
             res.push(
                 {
                     name: 'Succeded',
-                    data: succeeded,
+                    data: succeeded.sort(this.cmp),
                 }
             );
         }
@@ -115,7 +114,7 @@ export class StateParser {
             res.push(
                 {
                     name: 'Skipped',
-                    data: skipped,
+                    data: skipped.sort(this.cmp),
                 }
             );
         }
@@ -123,7 +122,7 @@ export class StateParser {
             res.push(
                 {
                     name: 'Cancelled',
-                    data: cancelled,
+                    data: cancelled.sort(this.cmp),
                 }
             );
         }

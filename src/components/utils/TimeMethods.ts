@@ -1,11 +1,11 @@
 const colors = ['#16a34a', '#dc2626', '#cbd5e1', '#0f172a'];
 
 export const toMicro = (time: string) => {
-    
+    const days = parseFloat(time.split('T')[0].split('-')[2])*3600*24;
     const hours = parseFloat(time.split(':')[0].split('T')[1])*3600
     const minutes = parseFloat(time.split(':')[1])*60;
     const sec = parseFloat(time.split(':')[2]);
-    return (hours + minutes+sec)*1000000;
+    return (days + hours + minutes + sec)*1000000;
 }
   
 export const durationMicro = (duration: string) => {
