@@ -16,14 +16,14 @@ const Timeline = () => {
             options={mainChart.getOptions()} 
             series={mainChart.getSerie()} 
             type="rangeBar" 
-            height="700"/>
+            height="500"/>
         </div>
         <div>
           <ReactApexChart 
             options={brushChart.getOptions()} 
             series={brushChart.getSerie()} 
             type="rangeBar" 
-            height="100"/>
+            height="150"/>
         </div>
       </>
       );

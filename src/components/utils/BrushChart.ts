@@ -19,7 +19,6 @@ export class BrushChart {
     }
 
     private generateOptions(): object {
-        console.log(getEndTime(this.data.serie[1]['data']))
         const option: object = {
             chart: {
               type: 'rangeBar',
@@ -57,7 +56,7 @@ export class BrushChart {
               },
               yaxis: {
                 lines: {
-                    show: true
+                    show: false
                 }
               }
             },
@@ -86,7 +85,10 @@ export class BrushChart {
             },
             colors: [
                 '#cbd5e1', '#16a34a'
-            ]
+            ],
+            tooltip: {
+              enabled: false
+            }
         };
 
         return option;

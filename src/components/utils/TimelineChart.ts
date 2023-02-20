@@ -39,7 +39,7 @@ export class TimelineChart {
                 },
                 yaxis: {
                     lines: {
-                        show: true
+                        show: false
                     }
                 }
             },
@@ -47,11 +47,11 @@ export class TimelineChart {
                 bar: {
                     horizontal: true,
                     distributed: true,
-                    barHeight: '70%',
+                    barHeight: '90%',
                     borderRadius: 2,
                     rangeBarGroupRows: true,
                     dataLabels: {
-                        position: 'middle',
+                        position: 'top',
                         hideOverflowingLabels: false
                     }
                 },
@@ -65,11 +65,19 @@ export class TimelineChart {
                     }
                 }
             },
+            yaxis: {
+                labels: {
+                    show: true,
+                    align: 'right',
+                    minWidth: 0,
+                    maxWidth: 200,
+                },
+            },
             dataLabels: {
                 enabled: true,
                 offsetX: 0,
                 style: {
-                    fontWeight: 'bold',
+                    fontWeight: 'ligth',
                     fontSize: '12px',
                     fontFamily: 'monospace',
                     colors: ['#000']
@@ -96,7 +104,7 @@ export class TimelineChart {
                   },
             },
             colors: [
-                '#64748b', '#16a34a'
+                '#64748b', '#16a34a', '#fcd34d', '#dc2626'
             ],
             legend: {
                 position: "top"
