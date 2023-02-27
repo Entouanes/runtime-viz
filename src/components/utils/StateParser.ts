@@ -7,6 +7,9 @@ export class StateParser {
         this.stateFile = require('../../assets/config/state/' + fileName);
         this.actions = this.parseActions();
         this.serie = this.generateSerie();
+        this.projectName = fileName.split('.')[0];
+        this.runId = fileName.split('.')[1];
+        this.attemptId = fileName.split('.')[2];
     }
 
     // Attribute     
@@ -22,6 +25,9 @@ export class StateParser {
     };
     public actions: any;
     public serie: object[];
+    public projectName: string;
+    public runId: string;
+    public attemptId: string;
 
     // Properties
     private generateSerie() : object[] {
@@ -65,7 +71,7 @@ export class StateParser {
                 startAction - start, 
                 startAction + duration - start
             ],
-            fillColor: (state === 'SUCCEEDED') ? '#16a34a' : ((state === 'SKIPPED') ? '#fcd34d' : '#dc2626')
+            fillColor: (state === 'SUCCEEDED') ? '#1ea82c' : ((state === 'SKIPPED') ? '#fcd34d' : '#dc2626')
         }
     }
 

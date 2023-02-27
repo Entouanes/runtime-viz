@@ -25,25 +25,20 @@ export class BrushChart {
               id: this.id,
               toolbar: {
                 show: false,
-                autoSelected: 'selection'
               },
               brush:{
-                target: this.target,
-                enabled: false
+                enabled: true,
+                target: this.target
               },
               selection: {
                 enabled: true,
-                fill: {
-                  color: '#1e293b',
-                  opacity: 0.01
-                },
                 xaxis: {
-                    min: 0,
-                    max: getEndTime(this.data.serie[1]['data'])
+                    min: -0.01*getEndTime(this.data.serie[1]['data']),
+                    max: 1.1*getEndTime(this.data.serie[1]['data'])
                 },
                 stroke: {
                   color: '#1e293b',
-                  opacity: 1
+                  opacity: 0
                 }
               },
             },
@@ -63,7 +58,7 @@ export class BrushChart {
             plotOptions: {
               bar: {
                 horizontal: true,
-                barHeight: '50%',
+                barHeight: '60%',
                 rangeBarGroupRows: true,
                 dataLabels: {
                   position: 'center'
@@ -71,6 +66,7 @@ export class BrushChart {
               },
             },
             xaxis: {
+              type: 'datetime',
               labels: {
                 show: false
               }

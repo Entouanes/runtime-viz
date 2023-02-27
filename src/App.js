@@ -1,16 +1,15 @@
-import Timeline from "./components/Timeline";
+import TimelineContainer from "./components/TimelineContainer";
 
 
 function App() {
+  const run = 'vmdl.9619.1.json';
+  const run3 = 'vmdl.9619.2.json';
+  const run1 = 'compute-distances.1.1.json';
+  const run2 = 'tmc_cidra.550.1';
+  
   return (
-    <>
-      <div className="bg-white rounded-lg">
-          <Timeline/>
-        <div className="flex justify-center">
-        </div>
-      </div>
-    </>
-  );
+    <TimelineContainer run={run}/>
+  )
 }
 
 export default App;

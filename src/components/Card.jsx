@@ -1,4 +1,5 @@
 import Timeline from "./Timeline";
+import Timeline2 from "./Timeline2"
 
 export default function Card() {
 
@@ -6,7 +7,7 @@ export default function Card() {
       <div className="m-40 bg-white rounded-lg p-10 ring-1 ring-slate-900/5 shadow-xl">
         <h3 className="text-slate-900 mt-5 p-2 text-base font-medium tracking-tight">Run timeline</h3>
         <div className="pl-4 pr-4">
-          <Timeline/>
+          <Timeline2/>
         </div>
       </div>
   )
